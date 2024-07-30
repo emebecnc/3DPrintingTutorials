@@ -2,30 +2,41 @@
 
 1. Assuming you already have your printer working with Klipper, issue the following commands:
 
->sudo apt update
->sudo apt upgrade
+```
+sudo apt update
+sudo apt upgrade
+```
 
 2. Now install Python
 
->sudo apt install python3 python3-pip python3-can
+```
+sudo apt install python3 python3-pip python3-can
 pip3 install pyserial
+```
 
 3. Change to the Klipper directory to update with the latest version
 
->cd ~/klipper
->git pull
+```
+cd ~/klipper
+git pull
+```
 
 4. Now install the CanBoot software called katapult form here (https://github.com/Arksine/katapult) 
 
->cd ~
->git clone https://github.com/Arksine/katapult
->cd ~/katapult
+```
+cd ~
+git clone https://github.com/Arksine/katapult
+cd ~/katapult
+```
 
 5. We need to configure the canboot/katapult firmware for the Octopus . First compile the firmware: 
 
->make clean
->
->make menuconfig
+```
+make clean
+```
+```
+make menuconfig
+```
 
 ![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/1.png?raw=true)
 
@@ -33,7 +44,9 @@ Change your processor model to the one on your octopus board - here I used STM32
 
 Compile by entering the command: 
 
->make
+```
+make
+```
 
 6. Prepare the board to be flashed. Turn off everything, we first need to flash the octopus board by putting it in DFU mode.
 
@@ -45,7 +58,9 @@ Compile by entering the command:
 
 Confirm you are in dfu mode by issuing the command: 
 
->lsusb
+```
+lsusb
+```
 
 It should return something like this: 
 
@@ -53,13 +68,17 @@ It should return something like this:
 
 We need to get the internal flash memory details by issuing the command: 
 
->dfu-util -l
+```
+dfu-util -l
+```
 
 ![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/4.png?raw=true)
 
 9. Flash the bootloader to the octopus board (replace with your ID): 
 
->sudo dfu-util -a 0 -D ~/katapult/out/canboot.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11
+```
+sudo dfu-util -a 0 -D ~/katapult/out/canboot.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11
+```
 
 If all went well, then this is the outcome: 
 
@@ -67,14 +86,18 @@ If all went well, then this is the outcome:
 
 11. Time to set up the can0 network interface: 
 
->sudo nano /etc/network/interfaces.d/can0
+```
+sudo nano /etc/network/interfaces.d/can0
+```
 
 Enter the following text: 
 
->allow-hotplug can0
-  iface can0 can static
+```
+allow-hotplug can0
+iface can0 can static
   bitrate 1000000
   up ifconfig $IFACE txqueuelen 1024
+  ```
   
 Ctr-X to exit, Y to save and enter on the name. 
 
@@ -84,31 +107,41 @@ Ctr-X to exit, Y to save and enter on the name.
 
 14. Power up the Octopus board only and flash klipper in order to activate the can0 interface 
 
->cd ~/klipper
->
->make clean
->
->make menuconfig
+```
+cd ~/klipper
+```
+```
+make clean
+```
+```
+make menuconfig
+```
 
 ![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/6.png?raw=true)
 
 Change your processor model to the one on your octopus board - here I used STM32F466, but it may be a STM32F407 or STM32F429, etc. Make sure you get the clock reference correct. (The STM32F407 and STM32F429 uses a 8 MHz crystal whilst the STM32F446 uses a 12MHz crystal) 
 
->make
+```
+make
+```
 
 16. Flash Octopus board. 
 
 Start by getting the serial of the board 
 
->ls -al /dev/serial/by-id
+```
+ls -al /dev/serial/by-id
+```
 
 ![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/7.png?raw=true)
 
 Now issue the following commands: 
 
->cd ~/katapult/scripts
+```
+cd ~/katapult/scripts
 pip3 install pyserial
 python3 flash_can.py -f ~/klipper/out/klipper.bin -d /dev/serial/by-id/usb-katapult_stm32f446xx_430014000A50534E4E313120-if00
+```
 
 Ensure to use the value you got from the previous step for the id. 
 
@@ -120,8 +153,10 @@ IMPORTANT : Reboot the board to activate the Can0 Interface
 
 19. Obtain the UUID addresses: 
 
->cd ~/katapult/scripts
+```
+cd ~/katapult/scripts
 python3 flash_can.py -i can0 -q
+```
 
 ![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/9.png?raw=true)
 
