@@ -71,7 +71,7 @@ If all went well, then this is the outcome:
 Enter the following text: 
 
 >allow-hotplug can0
-  iface can0 can static
+>>iface can0 can static
   bitrate 1000000
   up ifconfig $IFACE txqueuelen 1024
   
