@@ -24,6 +24,7 @@ pip3 install pyserial
 5. We need to configure the canboot/katapult firmware for the Octopus . First compile the firmware: 
 
 >make clean
+>
 >make menuconfig
 
 ![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/1.png?raw=true)
@@ -84,8 +85,10 @@ Ctr-X to exit, Y to save and enter on the name.
 14. Power up the Octopus board only and flash klipper in order to activate the can0 interface 
 
 >cd ~/klipper
-make clean
-make menuconfig
+>
+>make clean
+>
+>make menuconfig
 
 ![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/6.png?raw=true)
 
