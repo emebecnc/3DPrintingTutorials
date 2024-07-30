@@ -166,3 +166,6 @@ Place this in your printer.cfg
 
 [mcu]
 canbus_uuid: 6beb0175188a
+
+Credits to:
+https://www.teamfdm.com/tutorials/article/101-canbus-octopus-canboot-and-mellow-fly-sht36v2/
