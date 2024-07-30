@@ -1,4 +1,4 @@
-## Guia para Klipper
+## Octopus Pro USB to CanBUS Mode
 
 1. Assuming you already have your printer working with Klipper, issue the following commands:
 
