@@ -42,7 +42,7 @@ make menuconfig
 
 Change your processor model to the one on your octopus board - here I used STM32F466, but it may be a STM32F407 or STM32F429, etc. Make sure you get the clock reference correct. (The STM32F407 and STM32F429 uses a 8 MHz crystal whilst the STM32F446 uses a 12MHz crystal) 
 
-Check here for reference: https://github.com/Esoterical/voron_canbus/tree/main/mainboard_flashing/common_hardware 
+>Check here for reference: https://github.com/Esoterical/voron_canbus/tree/main/mainboard_flashing/common_hardware 
 
 Compile by entering the command: 
 
@@ -123,7 +123,7 @@ make menuconfig
 
 Change your processor model to the one on your octopus board - here I used STM32F466, but it may be a STM32F407 or STM32F429, etc. Make sure you get the clock reference correct. (The STM32F407 and STM32F429 uses a 8 MHz crystal whilst the STM32F446 uses a 12MHz crystal) 
 
-Check here for reference: https://github.com/Esoterical/voron_canbus/tree/main/mainboard_flashing/common_hardware 
+>Check here for reference: https://github.com/Esoterical/voron_canbus/tree/main/mainboard_flashing/common_hardware 
 
 ```
 make
