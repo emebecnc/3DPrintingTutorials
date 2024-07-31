@@ -130,7 +130,7 @@ make
 Start by getting the serial of the board 
 
 ```
-ls -al /dev/serial/by-id
+ls -al /dev/serial/by-id*
 ```
 
 ![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/7.png?raw=true)
