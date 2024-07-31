@@ -35,8 +35,6 @@ cd ~/katapult
 
 ```
 make clean
-```
-```
 make menuconfig
 ```
 
@@ -113,11 +111,7 @@ Ctr-X to exit, Y to save and enter on the name.
 
 ```
 cd ~/klipper
-```
-```
 make clean
-```
-```
 make menuconfig
 ```
 
@@ -189,13 +183,10 @@ https://github.com/Esoterical/voron_canbus/tree/main/mainboard_flashing/common_h
 
 ```
 cd klipper
-```
-```
 make clean
+make menuconfig
 ```
-```
-makemenuconfig
-```
+![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/6.png?raw=true)
 ```
 make
 ```
