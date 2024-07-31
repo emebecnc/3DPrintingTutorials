@@ -121,7 +121,7 @@ python3 flash_can.py -i can0 –q
 ```
 ~/klippy-env/bin/python3 ~/katapult/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.uf2 -u <UUID>
 ```
-#ADVISE: 
+# ADVISE: 
 I have not successfully flashing Klipper with the command line on this board, so the best you can do in order to flash Klipper firmware, is after Step 8, refer to Step 6 from the USB Flashing above.
 
 Connection Test:
