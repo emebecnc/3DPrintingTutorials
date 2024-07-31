@@ -1,5 +1,7 @@
 ## Octopus Pro USB to CanBUS Mode
 
+Step by step installation guide to flash the Octopus board with canboot (USB-Canbus bridge)
+
 1. Assuming you already have your printer working with Klipper, issue the following commands:
 
 ```
