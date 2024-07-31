@@ -167,5 +167,53 @@ Place this in your printer.cfg
 [mcu]
 canbus_uuid: 6beb0175188a
 
+PSA: If you have any issue like “Timer too close” you can try lowering CanBUS speed to 500000
+
 Credits to:
 https://www.teamfdm.com/tutorials/article/101-canbus-octopus-canboot-and-mellow-fly-sht36v2/
+
+## UPDATE Klipper with Katapult
+
+![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/10.png?raw=true)
+
+1. Recompile Klipper for your mainboard 
+
+```
+cd klipper
+```
+```
+make clean
+```
+```
+makemenuconfig
+```
+```
+make
+```
+>If you previously installed Katapult (formerly Canoot) and enabled the "Support bootloader entry on rapid double click of reset button". 
+
+2. You'll need to access your electronic bay to press the reset button on your mainboard. Press it twice, SSH into your Pi and if Katapult was enabled you should see your ST32 model come up. 
+
+```
+lsusb
+```
+
+![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/11.png?raw=true)
+
+3. Enter the command to get your board serial # : 
+
+```
+ls/dev/serial/by-id/ 
+```
+
+![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/12.png?raw=true)
+
+4. Enter this command with your serial #: 
+
+```
+python3 ~/katapult/scripts/flashtool.py -f ~/klipper/out/klipper.bin -d /dev/serial/by-id/ <your serial #> 
+```
+
+This will flash Klipper to your mainboard. 
+
+Credits to: https://www.teamfdm.com/forums/topic/2349-updating-your-firmware-with-katapult-jan-22-2024-canbus/
