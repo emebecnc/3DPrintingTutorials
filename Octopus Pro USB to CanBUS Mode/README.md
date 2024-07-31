@@ -176,6 +176,9 @@ https://www.teamfdm.com/tutorials/article/101-canbus-octopus-canboot-and-mellow-
 
 ![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/10.png?raw=true)
 
+Use this link to get your device settings and recompile Klipper one at a time.
+https://github.com/Esoterical/voron_canbus/tree/main/mainboard_flashing/common_hardware 
+
 1. Recompile Klipper for your mainboard 
 
 ```
