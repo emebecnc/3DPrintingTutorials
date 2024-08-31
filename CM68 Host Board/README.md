@@ -1,4 +1,4 @@
-## CM68 OS 
+## CM68 Host Box
 
 The control board uses the CM68 core based on RK3568 as the upper computer of Klipper. Its system is compiled based on Debian 10, and the environment and plug-ins required by Klipper are pre-installed. After burning, it can be used directly. 
 
