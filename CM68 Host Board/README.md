@@ -29,14 +29,23 @@ The control board defaults to obtain IP automatically, make sure your router can
 You have two methods to login the mainsail webpage:
 
 ### IP address
-you need to go to your router to find the device named voron-02-pro, and write down the IP address
+You need to go to your router to find the device named voron-02-pro, and write down the IP address
 ### Host name
-The kit has already installed the required plug-ins, and you can access the mainsail page through the pre-set host name: voron-02-pro.local
+The OS has already installed the required plug-ins, and you can access the mainsail page through the pre-set host name: voron-02-pro.local
 
 ### Connect via WiFi
 
-- First connect the machine to your LAN via Ethernet, make sure you can log in to CM68 via SSH.
-- Plug the included USB wifi into any USB interface on CATALYST board
+- First connect the machine to your LAN via Ethernet, make sure you can log in to CM68 via SSH. Use putty or similar SSH tools to connect to CM68 using IP or host name
+
+```
+host name: voron-02-pro.local
+Username: linaro
+Password: linaro
+If you are not very familiar with linux, do not use the root user to log in. Misoperation may cause damage to the system.
+Username: root
+Password: root
+```
+
 - Use the following command checks whether the wifi module is recognized:
 ```
 sudo ifconfig
@@ -50,9 +59,9 @@ sudo wifi_sta_start.sh ssid password
 sudo ifconfig
 ```
 ### Wifi Connection Issues
-If you are having problems with your Catalyst wifi, please fix using the following solution. 
+If you are having problems with your CM68 wifi, please fix using the following solution. 
 
-SSH into the Catalyst, and run the following command `sudo nano /etc/network/interfaces`
+SSH into the CM68, and run the following command `sudo nano /etc/network/interfaces`
 
 Once you have run the command, add the following lines 
 
@@ -62,7 +71,7 @@ iface wlan0 inet dhcp
 wpa-ssid Your Network Name Here
 wpa-psk Your Password Goes Here
 ```
-example if your wifi name is fysetcwifi and password was ItRocks:
+Example if your wifi name is fysetcwifi and password was ItRocks:
 ```
 auto wlan0
 iface wlan0 inet dhcp
@@ -70,8 +79,8 @@ wpa-ssid fysetcwifi
 wpa-psk ItRocks
 ```
 
-Links: 
+Buy Links:
+
 https://www.fysetc.com/products/fysetc-cm68-host-box-board-for-klipper-3d-printer-diy
 
-Buy Link
 https://s.click.aliexpress.com/e/_DnPCw1Z
