@@ -203,7 +203,7 @@ lsusb
 3. Enter the command to get your board serial # : 
 
 ```
-ls/dev/serial/by-id/ 
+ls /dev/serial/by-id/* 
 ```
 
 ![](https://github.com/emebecnc/Guides/blob/main/Octopus%20Pro%20USB%20to%20CanBUS%20Mode/media/12.png?raw=true)
